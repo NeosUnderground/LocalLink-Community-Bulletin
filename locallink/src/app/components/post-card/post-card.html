@@ -1,0 +1,22 @@
+<div class="post-card" [class.featured]="post.isFeatured">
+  <div class="post-header">
+    <h2 class="post-title">{{ post.title }}</h2>
+    <span class="post-category">{{ post.category }}</span>
+  </div>
+  <p class="post-description">{{ post.description }}</p>
+    <div class="post-footer">
+    <span class="post-zip">📍 {{ post.zip }}</span>
+    <span *ngIf="post.distance != null" class="post-distance">
+        • {{ post.distance | number:'1.0-1' }} miles away
+    </span>
+    <span class="post-date">{{ post.createdAt | date:'shortDate' }}</span>
+    <div *ngIf="post.contact" class="contact-info">
+      📞 Contact: {{ formatPhoneNumber(post.contact) }}
+    </div>
+    </div>
+   <div *ngIf="isOwner">
+    <a [routerLink]="['/edit', post.id]" class="edit-link">✏️ Edit</a>
+    <button (click)="delete.emit(post.id)" class="delete-btn">🗑️ Delete</button>
+  </div>
+
+</div>

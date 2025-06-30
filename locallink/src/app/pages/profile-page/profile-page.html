@@ -1,0 +1,26 @@
+<div class="profile-container" *ngIf="user">
+  <h2>Welcome, {{ user.displayName || 'Anonymous' }}</h2>
+  <p>Email: {{ user.email }}</p>
+
+  <h3>Your Posts</h3>
+  <div *ngIf="userPosts.length; else noPosts">
+    <app-post-card
+      *ngFor="let post of userPosts"
+      [post]="post"
+      (delete)="deletePost($event)">
+    </app-post-card>
+  </div>
+
+  <ng-template #noPosts>
+    <p>You haven’t posted anything yet.</p>
+  </ng-template>
+</div>
+
+
+<div *ngIf="user; else loading">
+  <!-- ... existing content ... -->
+</div>
+
+<ng-template #loading>
+  <p>Loading profile...</p>
+</ng-template>

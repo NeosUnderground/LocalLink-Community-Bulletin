@@ -1,0 +1,55 @@
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="post-form">
+  <label>
+    Title *
+    <input type="text" formControlName="title" />
+    <div class="error" *ngIf="postForm.get('title')?.invalid && postForm.get('title')?.touched">
+      Title is required.
+    </div>
+  </label>
+
+  <label>
+    Description *
+    <textarea formControlName="description"></textarea>
+    <div class="error" *ngIf="postForm.get('description')?.invalid && postForm.get('description')?.touched">
+      Description is required.
+    </div>
+  </label>
+
+  <label>
+    Category *
+    <select formControlName="category">
+      <option value="">-- Select a category --</option>
+      <option>For Sale</option>
+      <option>Services</option>
+      <option>Events</option>
+      <option>Announcements</option>
+      <option>Other</option>
+    </select>
+    <div class="error" *ngIf="postForm.get('category')?.invalid && postForm.get('category')?.touched">
+      Category is required.
+    </div>
+  </label>
+   <input
+        type="text"
+        formControlName="contact"
+        placeholder="Your contact info (optional)"
+        maxlength="10"
+        />
+        <small *ngIf="postForm.get('contact')?.invalid && postForm.get('contact')?.touched" style="color: red;">
+        Please enter exactly 10 digits (numbers only).
+        </small>
+        <small *ngIf="postForm.get('contact')?.valid" style="color: gray;">
+        Example: 1234567890
+        </small>
+  <label>
+    ZIP Code *
+    <input type="text" formControlName="zip" maxlength="5" />
+    <div class="error" *ngIf="postForm.get('zip')?.invalid && postForm.get('zip')?.touched">
+      ZIP must be 5 digits.
+    </div>
+  </label>
+  
+
+  <button type="button" (click)="useMyLocation()">📍 Use My Location</button>
+  <button type="submit" [disabled]="postForm.invalid">Submit Post</button>
+</form>

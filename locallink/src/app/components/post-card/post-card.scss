@@ -1,0 +1,72 @@
+@use '../../../styles/variables' as *;
+
+.post-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &.featured {
+    border: 2px solid $primary-color;
+    background-color: #f0f8ff;
+  }
+
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .post-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .post-category {
+      background: $primary-color;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+  }
+
+  .post-description {
+    margin: 0.75rem 0;
+    color: #444;
+  }
+
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .edit-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.delete-btn {
+  background: none;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.delete-btn:hover {
+  background-color: #ffecec;
+}
+
+}

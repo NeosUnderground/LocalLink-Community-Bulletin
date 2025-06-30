@@ -1,0 +1,40 @@
+<div class="filter-bar">
+  <div class="filter-bar-content">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange()"
+      placeholder="Search posts..."
+    />
+
+    <input
+      type="text"
+      [(ngModel)]="zip"
+      (input)="emitFilters()"
+      placeholder="ZIP Code"
+      maxlength="5"
+    />
+
+    <select [(ngModel)]="category" (change)="emitFilters()">
+      <option value="">All Categories</option>
+      <option value="For Sale">For Sale</option>
+      <option value="Services">Services</option>
+      <option value="Events">Events</option>
+      <option value="Announcements">Announcements</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <button type="button" (click)="useMyLocation()">📍 Use My Location</button>
+
+    <select [(ngModel)]="radius" (change)="onRadiusChange()">
+      <option [ngValue]="5">5 miles</option>
+      <option [ngValue]="10">10 miles</option>
+      <option [ngValue]="25">25 miles</option>
+      <option [ngValue]="50">50 miles</option>
+    </select>
+  </div>
+
+  <div class="reset-container">
+    <button type="button" class="reset-btn" (click)="resetFilters()">Reset Filters</button>
+  </div>
+</div>

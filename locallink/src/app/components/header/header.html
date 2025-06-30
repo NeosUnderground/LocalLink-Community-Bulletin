@@ -1,0 +1,24 @@
+<div class="header-container">
+  <div class="logo-title">
+    <img src="assets/images/local-link-logo.png" alt="LocalLink Logo" height="40" style="width: auto;" />
+    <button class="menu-toggle" (click)="toggleMobileMenu()">
+      ☰
+    </button>
+  </div>
+
+  <nav [class.open]="mobileMenuOpen">
+    <a routerLink="/" class="nav-link" routerLinkActive="active">
+      🏠 Home
+    </a>
+
+    <div *ngIf="user" class="user-dropdown" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
+      <span class="user-name">👤 {{ user.displayName }}</span>
+      <div class="dropdown-menu" *ngIf="dropdownOpen">
+        <a routerLink="/profile" class="dropdown-item">📄 My Profile</a>
+        <button class="dropdown-item" (click)="logout()">🚪 Logout</button>
+      </div>
+    </div>
+
+    <button *ngIf="!user" (click)="login()" class="login-button">🔐 Login with Google</button>
+  </nav>
+</div>

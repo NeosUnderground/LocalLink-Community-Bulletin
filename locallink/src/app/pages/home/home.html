@@ -1,0 +1,17 @@
+<app-filter-bar (filtersChanged)="onFiltersChanged($event)"></app-filter-bar>
+
+<section class="post-list">
+  <div class="home-actions">
+    <button routerLink="/new" class="new-post-btn">➕ New Post</button>
+  </div>
+
+  <app-post-card
+    *ngFor="let post of filteredPosts"
+    [post]="post"
+    (delete)="onDeletePost($event)"
+  ></app-post-card>
+
+  <div *ngIf="filteredPosts.length === 0" class="no-results">
+    No posts found. Try adjusting your filters.
+  </div>
+</section>

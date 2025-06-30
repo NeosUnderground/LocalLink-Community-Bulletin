@@ -1,0 +1,11 @@
+@import './_reset';
+@import './_variables';
+@import './_layout';
+@import './_components';
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,38 @@
+.post-list {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.home-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  padding-right: 1rem; // optional
+
+  .new-post-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    height: 38px;
+    display: flex;
+    align-items: center;
+  }
+
+  .new-post-btn:hover {
+    background: #0056b3;
+  }
+}
+
+
