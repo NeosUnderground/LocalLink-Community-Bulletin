@@ -49,5 +49,21 @@ export class PostService {
         localStorage.setItem('locallink-posts', JSON.stringify(this.localPosts));
     }
 
+   toggleFavorite(postId: string, userId: string): void {
+      const post = this.localPosts.find(p => p.id === postId);
+      if (!post) return;
+
+      post.favorites = post.favorites || [];
+      const index = post.favorites.indexOf(userId);
+
+      if (index > -1) {
+        post.favorites.splice(index, 1); // unfavorite
+      } else {
+        post.favorites.push(userId); // favorite
+      }
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.localPosts));
+    }
+
 }
 

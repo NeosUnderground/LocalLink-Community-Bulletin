@@ -31,6 +31,28 @@
       padding: 0.2rem 0.5rem;
       border-radius: 6px;
       font-size: 0.75rem;
+      margin-left: 1rem;
+    }
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #ffe8f0;
+      border-color: #ff4081;
+      color: #d6336c;
+    }
+
+    &.favorited {
+      color: #ff4081;
+      border-color: #ff4081;
     }
   }
 
@@ -41,32 +63,45 @@
 
   .post-footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem;
     font-size: 0.875rem;
     color: #666;
+
+    .location-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
   }
 
-  .edit-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #007bff;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.delete-btn {
-  background: none;
-  border: 1px solid #e74c3c;
-  color: #e74c3c;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  cursor: pointer;
-  margin-left: 0.5rem;
-}
+  .edit-btn {
+      border: 1px solid #007bff;
+    color: #007bff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    
+  }
 
-.delete-btn:hover {
-  background-color: #ffecec;
-}
+  .delete-btn {
+    background: none;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
 
+    &:hover {
+      background-color: #ffecec;
+    }
+  }
 }

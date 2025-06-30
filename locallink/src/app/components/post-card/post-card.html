@@ -2,20 +2,33 @@
   <div class="post-header">
     <h2 class="post-title">{{ post.title }}</h2>
     <span class="post-category">{{ post.category }}</span>
+   <button (click)="onFavoriteClick()" [class.favorited]="isFavorited">
+      {{ isFavorited ? '💖' : '🤍' }} Favorite
+    </button>
   </div>
   <p class="post-description">{{ post.description }}</p>
     <div class="post-footer">
-    <span class="post-zip">📍 {{ post.zip }}</span>
-    <span *ngIf="post.distance != null" class="post-distance">
-        • {{ post.distance | number:'1.0-1' }} miles away
-    </span>
-    <span class="post-date">{{ post.createdAt | date:'shortDate' }}</span>
-    <div *ngIf="post.contact" class="contact-info">
-      📞 Contact: {{ formatPhoneNumber(post.contact) }}
-    </div>
+      <div class="location-info">
+        <span class="post-zip">📍 {{ post.zip }}</span>
+        <span *ngIf="post.distance != null" class="post-distance">
+          {{ post.distance | number:'1.0-1' }} miles away
+        </span>
+      </div>
+
+      <div>
+        <span class="post-created">Posted on: {{ post.createdAt | date:'shortDate' }}</span>
+        <div *ngIf="post.contact" class="contact-info">
+          Contact: {{ formatPhoneNumber(post.contact) }}
+        </div>
+      </div>
+          
+      <div *ngIf="post.eventDate || post.eventTime" class="event-info">
+        <p *ngIf="post.eventDate">📅 Event Date: {{ post.eventDate }}</p>
+        <p *ngIf="post.eventTime">⏰ Event Time: {{ format12HourTime(post.eventTime) }}</p>
+      </div>
     </div>
    <div *ngIf="isOwner">
-    <a [routerLink]="['/edit', post.id]" class="edit-link">✏️ Edit</a>
+    <a [routerLink]="['/edit', post.id]" class="edit-btn">✏️ Edit</a>
     <button (click)="delete.emit(post.id)" class="delete-btn">🗑️ Delete</button>
   </div>
 

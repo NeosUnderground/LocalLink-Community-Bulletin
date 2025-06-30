@@ -47,6 +47,15 @@
     <div class="error" *ngIf="postForm.get('zip')?.invalid && postForm.get('zip')?.touched">
       ZIP must be 5 digits.
     </div>
+    <div class="form-group">
+      <label for="eventDate">Event Date</label>
+      <input type="date" formControlName="eventDate" />
+    </div>
+
+    <div class="form-group">
+      <label for="eventTime">Event Time</label>
+      <input type="time" formControlName="eventTime" />
+    </div>
   </label>
   
 

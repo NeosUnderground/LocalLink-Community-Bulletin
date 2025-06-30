@@ -15,4 +15,7 @@ export interface Post {
     name: string;
   };
   contact?: string;
+  eventDate?: string;
+  eventTime?: string;
+  favorites?: string[];
 }

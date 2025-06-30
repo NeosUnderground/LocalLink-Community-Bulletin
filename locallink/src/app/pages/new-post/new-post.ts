@@ -35,7 +35,9 @@ export class NewPostPageComponent implements OnInit {
       description: ['', Validators.required],
       category: ['', Validators.required],
       zip: ['', [Validators.required, Validators.pattern(/^\d{5}$/)]],
-      contact: ['', [Validators.pattern(/^\d{10}$/)]]
+      contact: ['', [Validators.pattern(/^\d{10}$/)]],
+      eventDate: [''],
+      eventTime: ['']
     });
   }
 

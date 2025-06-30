@@ -7,9 +7,27 @@
     <app-post-card
       *ngFor="let post of userPosts"
       [post]="post"
-      (delete)="deletePost($event)">
+      (delete)="deletePost($event)"
+     (toggleFavorite)="onToggleFavorite(post.id)"
+    >
+      
     </app-post-card>
   </div>
+
+  <h3>Your Favorites</h3>
+  <div *ngIf="favoritePosts.length > 0; else noFavorites">
+    <app-post-card
+      *ngFor="let post of favoritePosts"
+      [post]="post"
+      (toggleFavorite)="onToggleFavorite(post.id)"
+      >
+    </app-post-card>
+  </div>
+
+<ng-template #noFavorites>
+  <p>You haven’t favorited any posts yet.</p>
+</ng-template>
+
 
   <ng-template #noPosts>
     <p>You haven’t posted anything yet.</p>
@@ -20,6 +38,12 @@
 <div *ngIf="user; else loading">
   <!-- ... existing content ... -->
 </div>
+
+
+
+<ng-template #noFavorites>
+  <p>You haven’t favorited any posts yet.</p>
+</ng-template>
 
 <ng-template #loading>
   <p>Loading profile...</p>

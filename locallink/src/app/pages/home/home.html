@@ -9,6 +9,7 @@
     *ngFor="let post of filteredPosts"
     [post]="post"
     (delete)="onDeletePost($event)"
+    (toggleFavorite)="onToggleFavorite($event)"
   ></app-post-card>
 
   <div *ngIf="filteredPosts.length === 0" class="no-results">
