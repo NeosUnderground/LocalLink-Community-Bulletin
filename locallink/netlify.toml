@@ -1,6 +1,6 @@
 [build]
   command = "npm run build -- --configuration=production"
-  publish = "dist/locallink"
+  publish = "dist/locallink/browser"
 
 [[redirects]]
   from = "/*"
