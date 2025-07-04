@@ -1,6 +1,6 @@
 [build]
-  publish = "dist/locallink
-  command = "ng build --configuration=production"
+  command = "npx ng build --configuration=production"
+  publish = "dist/locallink"
 
 [[redirects]]
   from = "/*"
